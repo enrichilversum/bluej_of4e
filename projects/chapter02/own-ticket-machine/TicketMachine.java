@@ -9,6 +9,9 @@
  * @author David J. Barnes and Michael Kolling
  * @version 2008.03.30
  */
+
+import java.io.Console;
+
 public class TicketMachine
 {
     // The price of a ticket from this machine.
@@ -18,8 +21,8 @@ public class TicketMachine
     // The total amount of money collected by this machine.
     private int total;
     // ex. 2.49 
-    private float discount;
-
+    private String line;
+   
     /**
      * Create a machine that issues tickets of the given price.
      */
@@ -28,17 +31,10 @@ public class TicketMachine
         price = ticketCost;
         balance = 0;
         total = 0;
+        line = "A";
         // discount = 0.3; // ex. 2.49
     }
-    
-    /**
-      * 2.49
-    */
-   // public int getSaving()
-   // {
-    //   return price*(float)discount;
-    // }
-    
+      
     /**
      * @Return The price of a ticket.
      */
@@ -70,7 +66,26 @@ public class TicketMachine
                                amount);
         }
     }
+    
+    /**
+     * Ex 2.58 (Challange) Several prices
+     */
+    
+    public int getLine(String line) {
+             switch (line) { 
 
+            case "A": price = 12;
+                break;
+            case "B": price = 14;
+                break;
+            case "C": price = 10;
+                break;
+        }
+        System.out.println("You selected line"+line);
+        System.out.println("The price is: "+price);
+        return price;
+    }
+    
     /**
      * Print a ticket if enough money has been inserted, and
      * reduce the current balance by the ticket price. Print
