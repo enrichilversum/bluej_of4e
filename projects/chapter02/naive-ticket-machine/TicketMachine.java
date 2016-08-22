@@ -18,36 +18,25 @@ public class TicketMachine
     // The total amount of money collected by this machine.
     private int total;
     // Ex. 2.15 //
-    private int status;
+   private int status;
 
     /**
      * Create a machine that issues tickets of the given price.
      * Note that the price must be greater than zero, and there
      * are no checks to ensure this.
      */
-    //    public TicketMachine(int ticketCost)
-    // exercise 2.41 use setprice as a parameter
-    public TicketMachine(int setPrice)
+    public TicketMachine(int ticketCost)
     {
         /** book 2.4 (pg.28) 
         * ticketCost is a parameter taken by the constructor (a variable defined here, the space in memory is reserved but value not set)
         *
         **/
-        // price = ticketCost;
-        price = setPrice;
+        price = ticketCost;
         balance = 0;
         total = 0;
     }
-    
-    /**
-    * excercise 2.42 second constructor with default price 
-    */
-    public TicketMachine()
-    {
-       price = 20;
-    }
-   
-     /**
+
+       /**
      * Return the price of a ticket.
      */
     public int getPrice()
@@ -79,21 +68,14 @@ public class TicketMachine
     {
         System.out.println("Please Insert the correct amount of money.");
     }
-    
     /**
      * Receive an amount of money in cents from a customer.
      */
     public void insertMoney(int amount)
     {
-          if (amount <= 0) {
-              System.out.println("Wrong amount ");
-              prompt();
-              System.out.println();
-          } else {
                balance = balance + amount;
-            }
     }
-   
+    
     /**
      * 2.29 sets a value for the price field
      */
@@ -122,23 +104,14 @@ public class TicketMachine
             total = total + balance;
             // Clear the balance.
             // balance = 0;
-            // returns the true balance and an error if there is not enouth cash
             balance = balance - price ;
         } else {
             System.err.println("Balance too low!");
         }
     }
     
-    /** exercise 2.40 
-     * empty all the money from the machine
-     */
-    public void empty()
-    {
-        balance = 0;
-    
-    }
-    
- 
+
+
 
 
 

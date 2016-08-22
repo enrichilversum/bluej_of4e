@@ -17,8 +17,6 @@ public class TicketMachine
     private int balance;
     // The total amount of money collected by this machine.
     private int total;
-    // ex. 2.49 
-    private float discount;
 
     /**
      * Create a machine that issues tickets of the given price.
@@ -28,17 +26,8 @@ public class TicketMachine
         price = ticketCost;
         balance = 0;
         total = 0;
-        // discount = 0.3; // ex. 2.49
     }
-    
-    /**
-      * 2.49
-    */
-   // public int getSaving()
-   // {
-    //   return price*(float)discount;
-    // }
-    
+
     /**
      * @Return The price of a ticket.
      */
@@ -110,15 +99,4 @@ public class TicketMachine
         balance = 0;
         return amountToRefund;
     }
-    
-    /**
-     * Exercise 2.55
-     */
-    public void emptyMachine()
-    {
-        System.out.println("Total in machine: "+ total);
-        total=0;
-        balance=0;
-    } 
 }
-    
