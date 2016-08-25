@@ -13,19 +13,21 @@ public class Student
     private String id;
     // the amount of credits for study taken so far
     private int credits;
+    // getID 
+    private shortID studentID;
     
     /**
      * Create a new student with a given name and ID number.
      */
-    public Student(String fullName, String studentID)
+    public Student(String fullName)
     { 
-       if (( fullName.length() <= 3) && (studentID.length() <=3)) {  
+       if (( fullName.length() <= 3)) {  
            System.out.println("Length and ID must be more than 3 chars each");
         }
            name = fullName;
-           id = studentID;
+           // id = studentID;
            credits = 0;
-         
+           id = new IDgenerator.shortID() ;
     }
 
     /**
@@ -51,6 +53,11 @@ public class Student
      {
         return id;
      }
+     
+     /**
+      * New getStudentID method
+      */
+     
      
      /**
      * Add some credit points to the student's accumulated credits.

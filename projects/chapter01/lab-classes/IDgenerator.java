@@ -6,13 +6,13 @@ import java.math.BigInteger;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public final class IDgenerator
+public class IDgenerator
 {
 
       private SecureRandom random = new SecureRandom();
   
 
-       public String nextSessionID() {
+       private String nextSessionID() {
             return new BigInteger(40,random).toString(4);
       }
       
