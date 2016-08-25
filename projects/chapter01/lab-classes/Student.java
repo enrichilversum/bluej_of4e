@@ -1,4 +1,3 @@
-
 /**
  * The Student class represents a student in a student administration system.
  * It holds the student details relevant in our context.
@@ -14,15 +13,19 @@ public class Student
     private String id;
     // the amount of credits for study taken so far
     private int credits;
-
+    
     /**
      * Create a new student with a given name and ID number.
      */
     public Student(String fullName, String studentID)
-    {
-        name = fullName;
-        id = studentID;
-        credits = 0;
+    { 
+       if (( fullName.length() <= 3) && (studentID.length() <=3)) {  
+           System.out.println("Length and ID must be more than 3 chars each");
+        }
+           name = fullName;
+           id = studentID;
+           credits = 0;
+         
     }
 
     /**
@@ -42,14 +45,14 @@ public class Student
     }
 
     /**
-     * Return the student ID of this student.
-     */
+    * Return the student ID of this student.
+    */
     public String getStudentID()
-    {
+     {
         return id;
-    }
-
-    /**
+     }
+     
+     /**
      * Add some credit points to the student's accumulated credits.
      */
     public void addCredits(int additionalPoints)
@@ -67,11 +70,13 @@ public class Student
 
     /**
      * Return the login name of this student. The login name is a combination
-     * of the first four characters of the student's name and the first three
+     * of the first four characters of the student's name and the first three(
      * characters of the student's ID number.
      */
     public String getLoginName()
     {
+        
+        //if name.lenght
         return name.substring(0,4) + id.substring(0,3);
     }
     
@@ -81,5 +86,10 @@ public class Student
     public void print()
     {
         System.out.println(name + " (" + id + ")");
+        
     }
+    
+  
+    
+    
 }
