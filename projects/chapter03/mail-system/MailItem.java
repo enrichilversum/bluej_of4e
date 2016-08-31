@@ -1,9 +1,9 @@
 /**
- * A class to model a simple mail item. The item has sender and recipient
- * addresses and a message string.
- * @author David J. Barnes and Michael Kolling
- * @version 2008.03.30
- */
+* A class to model a simple mail item. The item has sender and recipient
+* addresses and a message string.
+* @author David J. Barnes and Michael Kolling
+* @version 2008.03.30
+*/
 public class MailItem
 {
     // The sender of the item.
@@ -14,12 +14,12 @@ public class MailItem
     private String message;
 
     /**
-     * Create a mail item from sender to the given recipient,
-     * containing the given message.
-     * @param from The sender of this item.
-     * @param to The intended recipient of this item.
-     * @param message The text of the message to be sent.
-     */
+    * Create a mail item from sender to the given recipient,
+    * containing the given message.
+    * @param from The sender of this item.
+    * @param to The intended recipient of this item.
+    * @param message The text of the message to be sent.
+    */
     public MailItem(String from, String to, String message)
     {
         this.from = from;

@@ -3,23 +3,23 @@ import java.util.List;
 import java.util.Iterator;
 
 /**
- * A simple model of a mail server. The server is able to receive
- * mail items for storage, and deliver them to clients on demand.
- * @author David J. Barnes and Michael Kolling
- * @version 2008.03.30
- */
+* A simple model of a mail server. The server is able to receive
+* mail items for storage, and deliver them to clients on demand.
+* @author David J. Barnes and Michael Kolling
+* @version 2008.03.30
+*/
 public class MailServer
 {
     // Storage for the arbitrary number of mail items to be stored
     // on the server.
-    private List<MailItem> items;
+    private List < MailItem > items;
 
     /**
-     * Construct a mail server.
-     */
+    * Construct a mail server.
+    */
     public MailServer()
     {
-        items = new ArrayList<MailItem>();
+        items = new ArrayList < MailItem >();
     }
 
     /**
@@ -30,8 +30,11 @@ public class MailServer
     public int howManyMailItems(String who)
     {
         int count = 0;
-        for(MailItem item : items) {
-            if(item.getTo().equals(who)) {
+        for(MailItem item :
+                items)
+        {
+            if(item.getTo().equals(who))
+            {
                 count++;
             }
         }
@@ -46,10 +49,12 @@ public class MailServer
      */
     public MailItem getNextMailItem(String who)
     {
-        Iterator<MailItem> it = items.iterator();
-        while(it.hasNext()) {
+        Iterator < MailItem > it = items.iterator();
+        while(it.hasNext())
+        {
             MailItem item = it.next();
-            if(item.getTo().equals(who)) {
+            if(item.getTo().equals(who))
+            {
                 it.remove();
                 return item;
             }

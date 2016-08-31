@@ -3,6 +3,7 @@
  * particular user, and sends and retrieves mail via a particular server.
  * @author David J. Barnes and Michael Kolling
  * @version 2008.03.30
+ * 
  */
 public class MailClient
 {
