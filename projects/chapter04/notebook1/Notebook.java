@@ -1,16 +1,16 @@
 import java.util.ArrayList;
 
 /**
-* A class to maintain an arbitrarily long list of notes.
-* Notes are numbered for external reference by a human user.
-* In this version, note numbers start at 0.
-*
-* @author David J. Barnes and Michael Kolling.
-* @version 2008.03.30
-* 
-* *
-* * EM: MY NOTES  
-*/
+ * A class to maintain an arbitrarily long list of notes.
+ * Notes are numbered for external reference by a human user.
+ * In this version, note numbers start at 0.
+ *
+ * @author David J. Barnes and Michael Kolling.
+ * @version 2008.03.30
+ *
+ * *
+ * * EM: MY NOTES
+ */
 public class Notebook
 {
     /*
@@ -21,11 +21,11 @@ public class Notebook
     private ArrayList < String > notes;
 
     /**
-    * Perform any initialization that is required for the
-    * notebook.
-    *
-    * * EM:  constructor, new instance of ArrayList called 'notes'
-    */
+     * Perform any initialization that is required for the
+     * notebook.
+     *
+     * * EM:  constructor, new instance of ArrayList called 'notes'
+     */
     public Notebook()
     {
         notes = new ArrayList < String >();
@@ -34,7 +34,7 @@ public class Notebook
     /**
      * Store a new note into the notebook.
      * @param note The note to be stored.
-     * 
+     *
      * * EM Methods, Arraylist method .add
      */
     public void storeNote(String note)
@@ -72,18 +72,39 @@ public class Notebook
     }
 
     /** EM: experimetn :P
-     * 
+     *
      */
     public void showAllNotes()
     {
-        for(int i=0; i < notes.size(); i++)
+        for(int i = 0; i < notes.size(); i++)
         {
-            System.out.println(notes.get(i));
+
+            System.out.println("["+i+"] "+notes.get(i));
         }
 
     }
+
+    /** EM Ex. 4.4 silly get method
+     * 
+     */
+    public void show5thElement()
+    {
+        System.out.println(notes.get(4));
+    }
+
+    /** EM: experiment remove a note
+     * 
+     */
+    public void removeNote(int noteNumber)
+    {
+        if ((noteNumber <= numberOfNotes())&&(noteNumber < 0))
+        {
+            notes.remove(noteNumber);
+        }
+        else {
+            System.out.println(noteNumber+" is not a valid value");
+        }
+
+    }
+
 }
-
-
-
-
