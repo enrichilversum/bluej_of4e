@@ -92,12 +92,12 @@ public class Notebook
         System.out.println(notes.get(4));
     }
 
-    /** EM: experiment remove a note
+    /** EM: Ex. 4.9
      * 
      */
     public void removeNote(int noteNumber)
     {
-        if ((noteNumber <= numberOfNotes())&&(noteNumber < 0))
+        if ((noteNumber <= numberOfNotes())||(noteNumber < 0))
         {
             notes.remove(noteNumber);
         }
