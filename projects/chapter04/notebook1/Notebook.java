@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * A class to maintain an arbitrarily long list of notes.
@@ -53,12 +54,13 @@ public class Notebook
     /**
      * Show a note.
      * @param noteNumber The number of the note to be shown.
+     * EM: Exc 4.16 Modified error message
      */
     public void showNote(int noteNumber)
     {
         if(noteNumber < 0)
         {
-            // This is not a valid note number, so do nothing.
+            System.out.println(noteNumber+" is not a valid value");
         }
         else if(noteNumber < numberOfNotes())
         {
@@ -67,12 +69,12 @@ public class Notebook
         }
         else
         {
-            // This is not a valid note number, so do nothing.
+            System.out.println(noteNumber+" is not a valid value");
         }
     }
 
-    /** EM: experimetn :P
-     *
+    /** EM: experimetn :P (and later in 4.23)
+     *  C type for loop
      */
     public void showAllNotes()
     {
@@ -80,6 +82,19 @@ public class Notebook
         {
 
             System.out.println("["+i+"] "+notes.get(i));
+        }
+
+    }
+
+    /** EM: 4.8.1 
+     * For-each loop (colon construct)
+     * would coincide with the'`for i in ${var[@]}` bash loop 
+     * 
+     */
+    public void listNotes()
+    {
+        for(String note : notes) {
+            System.out.println(note);
         }
 
     }
@@ -107,4 +122,50 @@ public class Notebook
 
     }
 
+    /** EM: Ex. 4.20, 4.21, 4.23 zeGoogle() 
+     * 
+     */
+    public void searchInNotes(String searchString) 
+    {
+        int index = 0;
+        boolean found = false ;
+        int lenght = notes.size(); 
+        while(index < lenght && !found) {
+            String note = notes.get(index);
+            if(note.contains(searchString)) {
+                found = true;
+                System.out.println(searchString+" : idx"+index+"  "+note);
+            }
+            else {
+                index++;
+            }
+
+        }
+
+    }
+
+    /** EM: 4.8.3  Iterator example
+     * 
+     */
+    public void iterateThroughNotes()
+    {
+        Iterator<String> it = notes.iterator();
+        while(it.hasNext()) {
+            System.out.println(it.next());
+        }
+    }
+
+    /** EM Exerc. 4.24
+     * Remove given a string
+     */
+    public void removeNote(String searchString)
+    {
+        Iterator<String> it = notes.iterator();
+        while(it.hasNext()) {
+            String note = it.next();
+            if (note.contains(searchString)) {
+                it.remove();
+            }
+        }
+    }
 }
