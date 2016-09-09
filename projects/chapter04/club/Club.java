@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+
 /**
  * Store details of club memberships.
  * 
@@ -7,14 +10,15 @@
 public class Club
 {
     // Define any necessary fields here ...
-    
+    private ArrayList< Membership > members;
+
     /**
      * Constructor for objects of class Club
      */
     public Club()
     {
         // Initialise any fields here ...
-        
+        members = new ArrayList< Membership >();
     }
 
     /**
@@ -23,6 +27,7 @@ public class Club
      */
     public void join(Membership member)
     {
+        members.add(member);
     }
 
     /**
@@ -31,6 +36,9 @@ public class Club
      */
     public int numberOfMembers()
     {
-        return 0;
+        return members.size();
     }
 }
+/** EM: NOTE: 
+ * The method join() requires the name of a Membership object, thus create a few memberships first and then add the name "membersh1", "membersh2", etc !!
+ */
