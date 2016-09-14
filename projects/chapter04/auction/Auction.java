@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * A simple model of an auction.
@@ -11,6 +12,7 @@ public class Auction
 {
     // The list of Lots in this auction.
     private ArrayList<Lot> lots;
+    
     // The number that will be given to the next lot entered
     // into this auction.
     private int nextLotNumber;
@@ -99,4 +101,25 @@ public class Auction
             return null;
         }
     }
+    /**
+     * Ex 4.28
+     */
+    
+    public void closeAuction()
+    {
+        Iterator<Lot> it = lots.iterator();
+        while(it.hasNext()) {
+            System.out.println(it.next());
+        }
+    }
+    
+    /**
+     * Ex 4.29
+     */
+  /**  public ArrayList<Lot> getUnsold()
+   * {
+    *    Iterator<Lot> unsoldLot = lots.interator();
+     *   if (unsoldLot.bidFor() = null) {
+      *      
+    * }
 }
