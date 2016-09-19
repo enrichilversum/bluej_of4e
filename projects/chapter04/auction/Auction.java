@@ -12,7 +12,7 @@ public class Auction
 {
     // The list of Lots in this auction.
     private ArrayList<Lot> lots;
-    
+
     // The number that will be given to the next lot entered
     // into this auction.
     private int nextLotNumber;
@@ -45,7 +45,7 @@ public class Auction
             System.out.println(lot.toString());
         }
     }
-    
+
     /**
      * Bid for a lot.
      * A message indicating whether the bid is successful or not
@@ -61,14 +61,14 @@ public class Auction
             boolean successful = selectedLot.bidFor(new Bid(bidder, value));
             if(successful) {
                 System.out.println("The bid for lot number " +
-                                   lotNumber + " was successful.");
+                    lotNumber + " was successful.");
             }
             else {
                 // Report which bid is higher.
                 Bid highestBid = selectedLot.getHighestBid();
                 System.out.println("Lot number: " + lotNumber +
-                                   " already has a bid of: " +
-                                   highestBid.getValue());
+                    " already has a bid of: " +
+                    highestBid.getValue());
             }
         }
     }
@@ -87,9 +87,9 @@ public class Auction
             // right lot.
             if(selectedLot.getNumber() != lotNumber) {
                 System.out.println("Internal error: Lot number " +
-                                   selectedLot.getNumber() +
-                                   " was returned instead of " +
-                                   lotNumber);
+                    selectedLot.getNumber() +
+                    " was returned instead of " +
+                    lotNumber);
                 // Don't return an invalid lot.
                 selectedLot = null;
             }
@@ -97,14 +97,15 @@ public class Auction
         }
         else {
             System.out.println("Lot number: " + lotNumber +
-                               " does not exist.");
+                " does not exist.");
             return null;
         }
     }
+
     /**
      * Ex 4.28
      */
-    
+
     public void closeAuction()
     {
         Iterator<Lot> it = lots.iterator();
@@ -112,14 +113,51 @@ public class Auction
             System.out.println(it.next());
         }
     }
-    
+
     /**
-     * Ex 4.29
+     * Ex  4.29 
      */
-  /**  public ArrayList<Lot> getUnsold()
-   * {
-    *    Iterator<Lot> unsoldLot = lots.interator();
-     *   if (unsoldLot.bidFor() = null) {
-      *      
-    * }
+
+    public ArrayList<Lot> getUnsold()
+    {
+        ArrayList<Lot> unsoldLots = new ArrayList<Lot>();
+        for(Lot lot : lots) {
+            Bid highestBid = lot.getHighestBid();
+            if(highestBid == null) {
+                unsoldLots.add(lot);
+
+            }
+         
+        }
+        return unsoldLots;
+    }
+
+    /**
+     * 4.32
+     */
+    public Lot removeLot(int lotNumber)
+    {
+     if((lotNumber >= 1) && (lotNumber < nextLotNumber)) {
+            // The number seems to be reasonable.
+            Lot selectedLot = lots.get(lotNumber-1);
+            // Include a confidence check to be sure we have the
+            // right lot.
+            if(selectedLot.getNumber() != lotNumber) {
+                System.out.println("Internal error: Lot number " +
+                    selectedLot.getNumber() +
+                    " was returned instead of " +
+                    lotNumber);
+                // Don't return an invalid lot.
+                selectedLot = null;
+            }
+            lots.remove(selectedLot);
+            return null;
+        }
+        else {
+            System.out.println("Lot number: " + lotNumber +
+                " does not exist.");
+            return null;
+        }
+    }
+   
 }
